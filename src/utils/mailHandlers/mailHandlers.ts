@@ -15,7 +15,7 @@ export async function sendForgotOTP(email: string, otp: number) {
     const absPath = path.join(process.cwd(), "templates", "forgotPassword.html");
     let html = await fs.promises.readFile(absPath, "utf8");
     html = html.replace("{{ OTP }}", otp.toString());
-    html = html.replace("{{ appName }}", APP_NAME);
+    html = html.replaceAll("{{ appName }}", APP_NAME);
 
     const mailOptions = {
         from: `${APP_NAME} <${EMAIL}>`,

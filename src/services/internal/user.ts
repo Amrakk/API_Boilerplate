@@ -68,7 +68,7 @@ export default class UserService {
     }
 
     public static async getByPhone(phoneNumber: string): Promise<IUser | null> {
-        return UserModel.findOne({ email: phoneNumber }, { projection: { _name: 0 } });
+        return UserModel.findOne({ phoneNumber }, { projection: { _name: 0 } });
     }
 
     // Mutate
